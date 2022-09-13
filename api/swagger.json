@@ -1,0 +1,285 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Winime API",
+    "contact": {
+      "email": "kik0908369@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost/api",
+      "description": "Your local server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "anime",
+      "description": "Interaction of an ordinary user with anime"
+    },
+    {
+      "name": "user",
+      "description": "User"
+    },
+    {
+      "name": "admin",
+      "description": "Admin panel"
+    }
+  ],
+  "paths": {
+    "/anime/top/{count}": {
+      "get": {
+        "tags": [
+          "anime"
+        ],
+        "summary": "Get the first 'count' entries from the top by rating",
+        "parameters": [
+          {
+            "name": "count",
+            "in": "path",
+            "allowEmptyValue": false,
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShortAnimeAnswer"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/anime": {
+      "get": {
+        "tags": [
+          "anime"
+        ],
+        "description": "Get 20 or less(maybe if it is the last page) anime in sorted order by rating, date added, release date. You can specify the desired genres. You must specify the **page**.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Num of page",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Sort by rating(r), date added(ad) or release date(rd).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "r",
+                "ad",
+                "rd"
+              ],
+              "default": "ad"
+            }
+          },
+          {
+            "name": "genres",
+            "in": "query",
+            "description": "List of genres",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Genres"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShortAnimeAnswer"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/anime/{id}": {
+      "get": {
+        "tags": [
+          "anime"
+        ],
+        "summary": "Get anime by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9999999
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullAnimeInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Genres": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "example": [
+          "Action",
+          "Detective"
+        ],
+        "default": [
+          "all"
+        ]
+      },
+      "Id": {
+        "type": "integer",
+        "format": "int64",
+        "example": 1,
+        "description": "Id of title"
+      },
+      "Rating": {
+        "type": "number",
+        "format": "float",
+        "example": 5.6,
+        "description": "Rating of title"
+      },
+      "ShortAnimeInfo": {
+        "type": "object",
+        "required": [
+          "name",
+          "pathToImage",
+          "id",
+          "rating"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "name": {
+            "type": "string",
+            "example": "Boku no Piko"
+          },
+          "pathToImage": {
+            "type": "string",
+            "example": "/img/0000001/img.png"
+          },
+          "rating": {
+            "$ref": "#/components/schemas/Rating"
+          }
+        }
+      },
+      "ShortAnimeAnswer": {
+        "type": "object",
+        "required": [
+          "count",
+          "titles"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Actual quantity",
+            "default": 1
+          },
+          "titles": {
+            "type": "array",
+            "description": "Array with short title info",
+            "items": {
+              "$ref": "#/components/schemas/ShortAnimeInfo"
+            }
+          }
+        }
+      },
+      "FullAnimeInfo": {
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "poster",
+          "id",
+          "genres",
+          "originName"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Id"
+          },
+          "name": {
+            "type": "string",
+            "example": "Cowboy Bebop"
+          },
+          "originName": {
+            "type": "string",
+            "example": "Cowboy Bebop"
+          },
+          "genres": {
+            "$ref": "#/components/schemas/Genres"
+          },
+          "description": {
+            "type": "string",
+            "description": "*May be empty*!",
+            "example": "A very cool anime with a ship in the role of a bebop cowboy"
+          },
+          "poster": {
+            "type": "string",
+            "description": "Paths to Poster",
+            "example": "/img/0000002/poster.png"
+          },
+          "images": {
+            "type": "array",
+            "description": "Paths to images",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "/img/0000002/img1.png",
+              "/img/0000002/img2.png"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
