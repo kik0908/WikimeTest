@@ -45,18 +45,18 @@ _<details><summary><h3>Anime</h3></summary>_
 </details>
 
 _<details><summary><h3>Comments</h3></summary>_
-  <p> 
+<p> 
 Коллекция для хранения комментариев.
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------|:---:|:-----------:|:--:|:----------------:|
 | \_id | int | >0, not null | + | 
 | Comments | _Comments_ struct[] | not null
-	  </p>
+</p>
 </details>
 
 _<details><summary><h3>Vk</h3></summary>_
-  <p> 
+<p> 
 Коллекция для сопоставления id пользователя с сайта  [vk.com](https://vk.com/) с внутренним id в приложении.
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
@@ -67,7 +67,7 @@ _<details><summary><h3>Vk</h3></summary>_
 </details>
 	  
 _<details><summary><h3>Gmail</h3></summary>_
-  <p> 
+<p> 
 Коллекция для сопоставления id пользователя с сайта  [gmail.com](https://gmail.com/) с внутренним id в приложении.
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
@@ -78,7 +78,7 @@ _<details><summary><h3>Gmail</h3></summary>_
 </details>
 
 _<details><summary><h3>Users</h3></summary>_
-  <p> 
+<p> 
 Коллекция для хранения информации о пользователях.
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
@@ -97,7 +97,7 @@ _<details><summary><h3>Users</h3></summary>_
 
 ## Структуры
 _<details><summary><h3>Rating</h3></summary>_
-  <p> 
+<p> 
 В каждом поле хранится количество соответствующих оценок.
 
 | Название атрибута | Тип | Ограничения | Внешний ключ для |
@@ -111,7 +111,7 @@ _<details><summary><h3>Rating</h3></summary>_
 </details>
 
 _<details><summary><h3>Comments</h3></summary>_
-  <p> 
+<p> 
 
 | Название атрибута | Тип | Ограничения | Внешний ключ для |
 | ------------------|:---:|:-----------:|:----------------:|
