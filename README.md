@@ -51,7 +51,7 @@ _<details><summary><h3>Comments</h3></summary>_
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------|:---:|:-----------:|:--:|:----------------:|
 | \_id | int | >0, not null | + | 
-| Comments | _Comments_ struct[] | not null
+| Comments | _Comment_ struct[] | not null
 </p>
 </details>
 
@@ -110,7 +110,7 @@ _<details><summary><h3>Rating</h3></summary>_
 </p>
 </details>
 
-_<details><summary><h3>Comments</h3></summary>_
+_<details><summary><h3>Comment</h3></summary>_
 <p> 
 
 | Название атрибута | Тип | Ограничения | Внешний ключ для |
