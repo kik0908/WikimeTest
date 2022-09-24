@@ -213,7 +213,7 @@ _<details><summary><h3>Comment</h3></summary>_
 # Технологии разработки
 #### Frontend
   - HTML, CSS
-  - JavaScript
+  - TypeScript
   - React 18.2.0
 
 #### Backend
