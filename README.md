@@ -129,7 +129,6 @@ _<details><summary><h3>Comment</h3></summary>_
 
 | Название атрибута | Тип | Ограничения | Внешний ключ для |
 | ------------------|:---:|:-----------:|:----------------:|
-| \_id | ObjectId | | |
 | User Id | int | >0, not null | _Users\_.id_
 | Message | string | len > 0, not null | |
 | DateTime | date | not null |
