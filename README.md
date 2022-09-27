@@ -31,7 +31,7 @@ _<details><summary><h3>Anime</h3></summary>_
 | \_id | int | >0, not null|  + | _Comments.\_id_    |
 | Title| string | not null, len>0| | | |
 | Origin Title | string | not null, len>0| | |
-| Genres | string[], _*index*_ | not null, one of the _Genres.Genre_| | |
+| Genres | string[], _*index*_ | not null, one of the _Genres.Geners_| | |
 | Description | string | | | |
 | Poster | string, path to img | must be valid, points to an existing file | | |
 | Images | string[] | must be valid, points to an existing file | | |
@@ -40,7 +40,6 @@ _<details><summary><h3>Anime</h3></summary>_
 | Date Added | date | not null | | |
 | Release date | date | | | |
 | Author | int | >0, not null | | _Users.\_id_ |
-| Rating | _Rating_ struct, _*index*_ | not null | | |
 </p>
 </details>
 
@@ -105,22 +104,25 @@ _<details><summary><h3>Users</h3></summary>_
 </p>
 </details>
 
-
-## Структуры
 _<details><summary><h3>Rating</h3></summary>_
 <p> 
-В каждом поле хранится количество соответствующих оценок.
+В каждом поле хранится количество соответствующих оценок для данного аниме.
+\_id - id аниме, для которого действительна эта оценка
 
 | Название атрибута | Тип | Ограничения | Внешний ключ для |
 | ------------------|:---:|:-----------:|:----------------:|
+| \_id | int | >= 0, not null | _Anime.\_id_ |
 | Five | int | >=0, not null | |
 | Four | int | >=0, not null | |
 | There | int | >=0, not null | |
 | Two | int | >=0, not null | |
 | One | int | >=0, not null | |
-| InFavorites | int | >=0, not null | | 
+| InFavorites | int | >=0, not null | |
+| Average | float | in range [0, 5], not null |  
 </p>
 </details>
+
+## Структуры
 
 _<details><summary><h3>Comment</h3></summary>_
 <p> 
@@ -213,7 +215,7 @@ _<details><summary><h3>Comment</h3></summary>_
 # Технологии разработки
 #### Frontend
   - HTML, CSS
-  - TypeScript
+  - JavaScript
   - React 18.2.0
 
 #### Backend
