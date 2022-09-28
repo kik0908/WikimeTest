@@ -10,25 +10,14 @@
 # Данные
 ## Коллекции
 
-_<details><summary><h3>ID base</h3></summary>_
-  <p>
-	  Коллекция нужна для хранения последнего индекса в коллекциях _Anime_ и _Users_.
-
-| Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
-| ------------------ | :---: | :-----------: | :--: | :----------------: |
-| \_id | string| can only be one of: "anime", "user" | + | |
-| seq | int | >0 | | _Anime.\_id_ OR _Users.\_id_ 
-  </p>
-</details>
-
-
 _<details><summary><h3>Anime</h3></summary>_
   <p> 
 Коллекция для хранения наполнения статей.
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------ | :---: | :-----------: | :--: | :----------------: |
-| \_id | int | >0, not null|  + | _Comments.\_id_    |
+| \_id | ObjectId | | | | |
+| id | int | >0, not null|  + | _Comments.\_id_    |
 | Title| string | not null, len>0| | | |
 | Origin Title | string | not null, len>0| | |
 | Genres | string[], _*index*_ | not null, one of the _Genres.Geners_| | |
@@ -36,8 +25,7 @@ _<details><summary><h3>Anime</h3></summary>_
 | Poster | string, path to img | must be valid, points to an existing file | | |
 | Images | string[] | must be valid, points to an existing file | | |
 | URLs | string[] | | | |
-| Director | string | | | |
-| Date Added | date | not null | | |
+| Director | string | | | 
 | Release date | date | | | |
 | Author | int | >0, not null | | _Users.\_id_ |
 </p>
@@ -72,7 +60,7 @@ _<details><summary><h3>Vk</h3></summary>_
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------|:---:|:-----------:|:--:|:----------------:|
 | \_id | int | >0, not null, valid vk user id | + |
-| Inner Id | int | >0, not null | | _Users.\_id_
+| Inner Id | int | >0, not null | | _Users.id_
 </p>
 </details>
 	  
@@ -83,7 +71,7 @@ _<details><summary><h3>Google</h3></summary>_
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------|:---:|:-----------:|:--:|:----------------:|
 | \_id | int | >0, not null, valid vk user id | + |
-| Inner Id | int | >0, not null | | _Users.\_id_
+| Inner Id | int | >0, not null | | _Users.id_
 </p>
 </details>
 
@@ -93,7 +81,8 @@ _<details><summary><h3>Users</h3></summary>_
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------|:---:|:-----------:|:--:|:----------------:|
-| \_id | int | >0, not null | + | |
+| \_id | ObjectId | | | |
+| id | int | >0, not null | + | |
 | Nickname | string | len > 0, not null 
 | Photo | string, path to img | must be valid, points to an existing file
 | Role  | string | not null, can only be one of: "admin", "moder", "user"
