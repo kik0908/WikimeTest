@@ -69,10 +69,10 @@ _<details><summary><h3>Users</h3></summary>_
 	  
 </p>
 </details>
+
 _<details><summary><h3>IdBase</h3></summary>_
 <p> 
 Коллекция для хранения id.
-
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------|:---:|:-----------:|:--:|:----------------:|
 | \_id | string, {AnimeID, UserID} | not null | + | |
