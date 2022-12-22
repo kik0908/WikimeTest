@@ -180,7 +180,8 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /anime/{anime_id}/images
       * Access: админ или модератор, который создал статью
       * Authorization: True
-      * Params: anime_id - id аниме, в запись о котором добавляется фотография
+      * Variables: anime_id - id аниме, в запись о котором добавляется фотография
+      * Params: None
       * Method: POST
       * Content-type: form-data
       * Body: file = {file for uploadind}, формат файла jpg или png
@@ -188,7 +189,8 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /anime/{anime_id}/poster
       * Access: админ или модератор, который создал статью
       * Authorization: True
-      * Params: anime_id - id аниме, в запись о котором добавляется фотография
+      * Variables: anime_id - id аниме, у которого меняется постер
+      * Params: None
       * Method: POST
       * Content-type: form-data
       * Body: file = {file for uploadind}, формат файла jpg или png
@@ -196,7 +198,8 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /anime/{anime_id}/images/{img_name}
       * Access: админ или модератор, который создал статью
       * Authorization: True
-      * Params: anime_id - id аниме, из статьи про которое удаляется фотография; img_name - название фото для удаления
+      * Variables: anime_id - id аниме, из статьи про которое удаляется фотография; img_name - название фото для удаления
+      * Params: None
       * Method: DELETE
       * Content-type: none
       * Body: none
@@ -204,6 +207,7 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/current/avatar
       * Access: Текущий пользователь
       * Authorization: True
+      * Variables: None
       * Params: None
       * Method: POST
       * Content-type: form-data
@@ -212,7 +216,8 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/{user_id}
       * Access: Все
       * Authorization: False
-      * Params: user_id - id пользователя
+      * Variables: user_id - id пользователя
+      * Params: None
       * Method: GET
       * Content-type: none
       * Body: none
@@ -220,6 +225,7 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/current
       * Access: Все
       * Authorization: True
+      * Variables: None
       * Params: None
       * Method: GET
       * Content-type: none
@@ -228,6 +234,7 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/admins
       * Access: Админы
       * Authorization: True
+      * Variables: None
       * Params: None
       * Method: GET
       * Content-type: none
@@ -236,6 +243,7 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/moderators
       * Access: Админы
       * Authorization: True
+      * Variables: None
       * Params: None
       * Method: GET
       * Content-type: none
@@ -244,6 +252,7 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/current/nickname
       * Access: Все
       * Authorization: True
+      * Variables: None
       * Params: None
       * Method: PUT
       * Content-type: json
@@ -252,6 +261,7 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/current/favorites
       * Access: Все
       * Authorization: True
+      * Variables: None
       * Params: None
       * Method: POST
       * Content-type: json
@@ -260,6 +270,7 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/current/favorites
       * Access: Все
       * Authorization: True
+      * Variables: None
       * Params: None
       * Method: DELETE
       * Content-type: json
@@ -268,6 +279,7 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/current/watched
       * Access: Все
       * Authorization: True
+      * Variables: None
       * Params: None
       * Method: POST
       * Content-type: json
@@ -276,10 +288,29 @@ _<details><summary><h3>Rating</h3></summary>_
   1) /users/current/watched
       * Access: Все
       * Authorization: True
+      * Variables: None
       * Params: None
       * Method: DELETE
       * Content-type: json
       * Body: animeId - id аниме
+      * Description: Удалить аниме из списка просмотренного
+  1) /users/{user_id}/role
+      * Access: Админы
+      * Authorization: True
+      * Variables: user_id - id пользователя
+      * Params: roleName - присваиваемая роль, может быть moderator, admin, user
+      * Method: PUT
+      * Content-type: None
+      * Body: None
+      * Description: Изменить роль пользователя
+  1) /users/{user_id}/role
+      * Access: Админы
+      * Authorization: True
+      * Variables: user_id - id пользователя
+      * Params: None
+      * Method: DELETE
+      * Content-type: None
+      * Body: None
       * Description: Удалить аниме из списка просмотренного
   
 
