@@ -357,6 +357,69 @@ _<details><summary><h3>Rating</h3></summary>_
       * Content-type: json
       * Body: title - название аниме; originTitle - оригинальное название; description - описание аниме; director - режиссер или студия; genres - список жанров; releaseDate - дата выпуска аниме в unix формате
       * Description: Создание аниме
+  1) /anime/{anime_id}
+      * Access: Все
+      * Authorization: False
+      * Variables: anime_id - id аниме
+      * Params: None
+      * Method: GET
+      * Content-type: None
+      * Body: None
+      * Description: Получить аниме по id
+  1) /anime/list
+      * Access: Все
+      * Authorization: False
+      * Variables: None
+      * Params: id - id аниме, можно передать список таких параметров. Пример: id=1&id=2&id=3&id=4
+      * Method: GET
+      * Content-type: None
+      * Body: None
+      * Description: Получить аниме по id списком
+  1) /anime
+      * Access: Все
+      * Authorization: False
+      * Variables: None
+      * Params: sortBy - сортировка аниме, может быть rating, dateAdded, favorites, releaseDate; order - порядок сортировки, прямой(1) или обратный(-1), необязательный; genres - массив жанров для посика, не должен указываться, если фильтр по жанрам не требуется, необязательный
+      * Method: GET
+      * Content-type: None
+      * Body: None
+      * Description: Получить отсортированные и отфильтрованные аниме
+  1) /anime/{anime_id}/rating
+      * Access: Все
+      * Authorization: False
+      * Variables: anime_id - id  аниме
+      * Params: None
+      * Method: POST
+      * Content-type: json
+      * Body: rating - оценка, может быть 1,2,3,4,5
+      * Description: Оценить аниме
+  1) /anime/popular
+      * Access: Все
+      * Authorization: False
+      * Variables: None
+      * Params: count - количество, максимум 30
+      * Method: Get
+      * Content-type: None
+      * Body: None
+      * Description: Получить список популярных аниме
+  1) /anime
+      * Access: Все
+      * Authorization: False
+      * Variables: None
+      * Params: search - по какому тексту будет производится поиск
+      * Method: GET
+      * Content-type: None
+      * Body: None
+      * Description: Найти статью 
+  1) /anime/{anime_id}
+      * Access: Админ, модератор, который создал статью
+      * Authorization: True
+      * Variables: anime_id - id  аниме
+      * Params: None
+      * Method: PUT
+      * Content-type: json
+      * Body: title - название аниме; originTitle - оригинальное название; description - описание аниме; director - режиссер или студия; genres - список жанров; releaseDate - дата выпуска аниме в unix формате
+      * Description: Изменить статью
   
   
 # Технологии разработки
