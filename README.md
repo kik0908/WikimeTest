@@ -311,9 +311,54 @@ _<details><summary><h3>Rating</h3></summary>_
       * Method: DELETE
       * Content-type: None
       * Body: None
-      * Description: Удалить аниме из списка просмотренного
+      * Description: Сбросить роль до базовой
+  1) /comments
+      * Access: Все
+      * Authorization: True
+      * Variables: None
+      * Params: None
+      * Method: POST
+      * Content-type: json
+      * Body: message - текст комментария; anime_id - id аниме, в статье о котором создается комментарий
+      * Description: Создать комментарий
+  1) /anime/{anime_id}/comments
+      * Access: Все
+      * Authorization: False
+      * Variables: anime_id - id статьи для получения комментариев
+      * Params: None
+      * Method: GET
+      * Content-type: None
+      * Body: None
+      * Description: Получить комментарии
+  1) /comments/{comment_id}
+      * Access: Админ, модератор, который создал статью, или пользователь, который написал этот комментарий.	
+      * Authorization: True
+      * Variables: comment_id - id удаляемого комментария
+      * Params: None
+      * Method: DELETE
+      * Content-type: None
+      * Body: None
+      * Description: Удалить комментарий
+  1) /auth/vk
+      * Access: Все
+      * Authorization: False
+      * Variables: None
+      * Params: None
+      * Method: POST
+      * Content-type: json
+      * Body: AuthToken - токен от vk api
+      * Description: Аутентификация пользователя
+  1) /anime
+      * Access: Админ или модератор
+      * Authorization: True
+      * Variables: None
+      * Params: None
+      * Method: POST
+      * Content-type: json
+      * Body: title - название аниме; originTitle - оригинальное название; description - описание аниме; director - режиссер или студия; genres - список жанров; releaseDate - дата выпуска аниме в unix формате
+      * Description: Создание аниме
   
-
+  
 # Технологии разработки
 #### Frontend
   - HTML, CSS
