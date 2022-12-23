@@ -177,6 +177,7 @@ _<details><summary><h3>Rating</h3></summary>_
   - Авторизация будет производиться с помощью протокола OAuth 2.0 через сторонние сервисы(например [vk.com](https://vk.com/)) 
   - Доступ к фотографиям будет осуществляться через GET запрос по URL, который возвращает сервер в качестве пути к фото
 ### Методы API
+	
   1) /anime/{anime_id}/images
       * Access: админ или модератор, который создал статью
       * Authorization: True
@@ -184,7 +185,7 @@ _<details><summary><h3>Rating</h3></summary>_
       * Params: None
       * Method: POST
       * Content-type: form-data
-      * Body: file = {file for uploadind}, формат файла jpg или png
+      * Body: file - изображение, формат файла jpg или png
       * Description: Загрузить новую фотографию в статью
   1) /anime/{anime_id}/poster
       * Access: админ или модератор, который создал статью
@@ -193,16 +194,16 @@ _<details><summary><h3>Rating</h3></summary>_
       * Params: None
       * Method: POST
       * Content-type: form-data
-      * Body: file = {file for uploadind}, формат файла jpg или png
-      * Description: Изменение постера у статьи
+      * Body: file - изображение, формат файла jpg или png
+      * Description: Изменение постера у статьи	
   1) /anime/{anime_id}/images/{img_name}
       * Access: админ или модератор, который создал статью
       * Authorization: True
       * Variables: anime_id - id аниме, из статьи про которое удаляется фотография; img_name - название фото для удаления
       * Params: None
       * Method: DELETE
-      * Content-type: none
-      * Body: none
+      * Content-type: None
+      * Body: None
       * Description: Удалить фотографию
   1) /users/current/avatar
       * Access: Текущий пользователь
@@ -211,7 +212,7 @@ _<details><summary><h3>Rating</h3></summary>_
       * Params: None
       * Method: POST
       * Content-type: form-data
-      * Body: file = {file for uploadind}, формат файла jpg или png
+      * Body: file - изображение, формат файла jpg или png
       * Description: Изменить аватар пользователя
   1) /users/{user_id}
       * Access: Все
@@ -219,8 +220,8 @@ _<details><summary><h3>Rating</h3></summary>_
       * Variables: user_id - id пользователя
       * Params: None
       * Method: GET
-      * Content-type: none
-      * Body: none
+      * Content-type: None
+      * Body: None
       * Description: Получить информацию о пользователе
   1) /users/current
       * Access: Все
@@ -228,8 +229,8 @@ _<details><summary><h3>Rating</h3></summary>_
       * Variables: None
       * Params: None
       * Method: GET
-      * Content-type: none
-      * Body: none
+      * Content-type: None
+      * Body: None
       * Description: Получить информацию об аутентифицированном пользователе
   1) /users/admins
       * Access: Админы
@@ -237,8 +238,8 @@ _<details><summary><h3>Rating</h3></summary>_
       * Variables: None
       * Params: None
       * Method: GET
-      * Content-type: none
-      * Body: none
+      * Content-type: None
+      * Body: None
       * Description: Получить список администраторов
   1) /users/moderators
       * Access: Админы
@@ -246,8 +247,8 @@ _<details><summary><h3>Rating</h3></summary>_
       * Variables: None
       * Params: None
       * Method: GET
-      * Content-type: none
-      * Body: none
+      * Content-type: None
+      * Body: None
       * Description: Получить список модераторов
   1) /users/current/nickname
       * Access: Все
