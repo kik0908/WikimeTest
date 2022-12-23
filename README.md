@@ -469,13 +469,13 @@ _<details><summary><h3>Rating</h3></summary>_
   - [Redux Toolkit](https://redux-toolkit.js.org/) - библиотека для работы с хранилищем и асинхронной логикой
 
 #### Backend
-  - Golang 1.18
+  - [Golang](https://go.dev/) 1.18
   - Golang standard library, net/http для обработки входящих соединений и отправки ответов
-  - Gorilla/mux для маршрутизации
-  - Gorilla/handlers для настройки CORS
-  - mongo-driver - официальная библиотека для работы с Mongodb из Golang
-  - github.com/go-playground/validator/v10 для валидации тел запросов
-  - github.com/JeremyLoy/config для чтения конфигурации
+  - [Gorilla/mux](https://github.com/gorilla/mux) для маршрутизации
+  - [Gorilla/handlers](https://github.com/gorilla/handlers) для настройки CORS
+  - [mongo-driver](https://www.mongodb.com/docs/drivers/go/current/) - официальная библиотека для работы с Mongodb из Golang
+  - [github.com/go-playground/validator/v10](github.com/go-playground/validator/v10) для валидации тел запросов
+  - [github.com/JeremyLoy/config](github.com/JeremyLoy/config) для чтения конфигурации
 
 #### СУБД
   - MongoDB
