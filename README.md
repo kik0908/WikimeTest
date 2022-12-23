@@ -211,8 +211,9 @@ _<details><summary><h3>Rating</h3></summary>_
   - Будет реализована страничка с документацией по каждому возможному запросу
   - Авторизация будет производиться с помощью протокола OAuth 2.0 через сторонние сервисы(например [vk.com](https://vk.com/)) 
   - Доступ к фотографиям будет осуществляться через GET запрос по URL, который возвращает сервер в качестве пути к фото
-### Методы API
-	
+<details><summary> <h3>Методы API<h3></summary>
+<p>
+
   1) /anime/{anime_id}/images
       * Access: админ или модератор, который создал статью
       * Authorization: True
@@ -457,6 +458,7 @@ _<details><summary><h3>Rating</h3></summary>_
       * Body: title - название аниме; originTitle - оригинальное название; description - описание аниме; director - режиссер или студия; genres - список жанров; releaseDate - дата выпуска аниме в unix формате
       * Description: Изменить статью
   
+</p></details>
   
 # Технологии разработки
 #### Frontend
